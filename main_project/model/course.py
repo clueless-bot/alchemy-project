@@ -1,6 +1,4 @@
 from sqlalchemy import *
-#from base import Base
-from connector import cnx
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 from main_project.model.person import *

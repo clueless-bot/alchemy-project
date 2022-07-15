@@ -6,6 +6,3 @@ Base.metadata.create_all(cnx)
 DBSession = sessionmaker(bind=cnx)
 session = DBSession()
 
-# from .person import Person
-# from .course import Course
-

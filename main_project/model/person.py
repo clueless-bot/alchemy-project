@@ -1,13 +1,8 @@
 from sqlalchemy import *
-# from sqlalchemy.ext.declarative import declarative_base
-# Base = declarative_base()
 from main_project.model.base import Base
 from sqlalchemy.orm import relationship
 from connector import cnx
 from sqlalchemy.schema import UniqueConstraint
-
-#from sqlalchemy.ext.declarative import declarative_base
-#Base = declarative_base()
 
 class Person(Base):
     __tablename__ = "person_details"
