@@ -15,8 +15,8 @@ class Person(Base):
     phone_number = Column('phone_number',Numeric)
     email = Column('email',String(50),unique = True)
     id = Column('id',Integer,primary_key=True)
-    Bs = relationship("Course", backref="person_details.id")
-    Cs = relationship("Exam",backref="person_details.id")
+    course_reference = relationship("Course", backref="person_details.id")
+    exam_reference = relationship("Exam",backref="person_details.id")
 
 """
 Student table is given below
