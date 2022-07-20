@@ -4,19 +4,21 @@ from sqlalchemy.orm import relationship
 from connector import cnx
 from sqlalchemy.schema import UniqueConstraint
 
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base()
+
 class Person(Base):
     __tablename__ = "person_details"
     __table_args__ = {'extend_existing': True}
 
-    """Adding Columns"""
     first_name = Column(String(50))
     dob = Column('dob',Date())
     last_name = Column('last_name',String(50))
     phone_number = Column('phone_number',Numeric)
     email = Column('email',String(50),unique = True)
     id = Column('id',Integer,primary_key=True)
-    course_reference = relationship("Course", backref="person_details.id")
-    exam_reference = relationship("Exam",backref="person_details.id")
+    course_ref = relationship("Course", backref="person_details.id")
+    exam_ref = relationship("Exam",backref="person_details.id")
 
 """
 Student table is given below

@@ -5,9 +5,6 @@ from main_project.model.person import *
 
 class Course(Base):
     __tablename__ = 'course'
-
-
-
     course_id = Column("course_id", Integer, primary_key=True)
     person_id = Column("id", Integer, ForeignKey('person_details.id'))
     title = Column('title', String(100))
@@ -16,12 +13,8 @@ class Course(Base):
     total = Column('total', Integer)
 
 
-
-
 class Exam(Base):
     __tablename__ = 'exam'
-
-
     exam_number = Column("exam_number", Integer, primary_key=True)
     person_id = Column(Integer, ForeignKey('person_details.id'))
     exam_date = Column("exam_date", Date())
