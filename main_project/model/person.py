@@ -5,10 +5,6 @@ from main_project.model.base import Base
 from sqlalchemy.orm import relationship
 from connector import cnx
 from sqlalchemy.schema import UniqueConstraint
-#from main_project.controller.enrollment import *
-
-#from sqlalchemy.ext.declarative import declarative_base
-#Base = declarative_base()
 
 class Person(Base):
     # def __int__(self,first_name,dob,last_name,phone_number,email,id):
@@ -55,7 +51,8 @@ class Person(Base):
     #add_column(cnx,__tablename__,id)
     #course_fk = relationship("Course", backref="person_details.id")
     #exam_fk = relationship("Exam",backref="person_details.id")
-    #enroll_course_fk = relationship("Enrollment",backref = "personal_details.id")
+    stud = relationship("Student",backref = "personal_details.id")
+    add = relationship("address",backref = "personal_details.id")
 
     # Cs = relationship("C", backref="A.id")
     #__table_args__ = (UniqueConstraint('email') ,)
@@ -100,6 +97,9 @@ class teacher(Base):
     salary = Column('salary',Integer)
     person_id = Column('person_id', Integer,ForeignKey('person_details.id'))
     doj = Column('date_of_joining', Date())
+    enroll_course_teacher_id_ref = relationship("Course", backref="teacher.emp_id")
+
+
 
 """
 address table is given below

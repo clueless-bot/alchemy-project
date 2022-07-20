@@ -1,7 +1,9 @@
 from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 from connector import cnx
-Base = declarative_base()
+from main_project.model.person import *
+from main_project.model.course import *
+from main_project.model.base import *
 from sqlalchemy.orm import *
 
 class Enrollments(Base):
@@ -11,6 +13,7 @@ class Enrollments(Base):
     enroll_id = Column("enrollment_id", Integer, primary_key=True)
     course_id = Column('enroll_course_id',Integer,ForeignKey('course.course_id'))
     student_id = Column('student_id',Integer,ForeignKey('student.id'))
+    student = relationship('Student')
 Base.metadata.create_all(cnx)
 
 #Taking input from user and enrolling student to course

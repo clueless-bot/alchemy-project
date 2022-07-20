@@ -1,9 +1,8 @@
 from sqlalchemy import *
 from connector import cnx
-from sqlalchemy.ext.declarative import declarative_base
-Base = declarative_base()
+from main_project.model.base import *
 from main_project.model.person import *
-from main_project.controller.enrollment import *
+# from main_project.controller.enrollment import *
 from sqlalchemy.orm import relationship
 class Course(Base):
     __tablename__ = 'course'
@@ -23,7 +22,7 @@ class Course(Base):
 
 
     course_id = Column("course_id", Integer, primary_key=True)
-    #person_id = Column('person_id',String,ForeignKey("person_details.id"))
+    teacher_id = Column("emp_id",Integer,ForeignKey("teacher.emp_id"))
     title = Column('title', String(100))
     credits = Column('credits', Float)
     level = Column('level', Integer)
@@ -31,13 +30,11 @@ class Course(Base):
     enroll_course_fk = relationship("Enrollments", backref="course.course_id")
 
 
-
 class Exam(Base):
     __tablename__ = 'exam'
     #__table_args__ = {'extend_existing': True}
 
     exam_number = Column("exam_number", Integer, primary_key=True)
-    #person_id = Column('person_id', String, ForeignKey("person_details.id"))
     exam_date = Column("exam_date", Date())
     supervisor = Column("supervisor", String(100))
     total_marks = Column("total_marks", Integer)
