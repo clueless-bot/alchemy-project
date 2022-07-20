@@ -1,5 +1,4 @@
-from sqlalchemy import create_engine,Column,Integer,String,MetaData,Date
-from sqlalchemy.orm import sessionmaker,backref,relationship,backref
+from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 from main_project.model.base import Base
 from main_project.model.person import *

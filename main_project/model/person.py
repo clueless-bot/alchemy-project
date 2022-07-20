@@ -6,8 +6,8 @@ from sqlalchemy.orm import relationship
 from connector import cnx
 from sqlalchemy.schema import UniqueConstraint
 
-#from sqlalchemy.ext.declarative import declarative_base
-#Base = declarative_base()
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base()
 
 class Person(Base):
     # def __int__(self,first_name,dob,last_name,phone_number,email,id):
@@ -23,43 +23,14 @@ class Person(Base):
 
 
     first_name = Column(String(50))
-
-
-
-    """Adding Columns"""
-    # def add_column(engine, table_name, column):
-    #     column_name = column.compile(dialect=engine.dialect)
-    #     column_type = column.type.compile(engine.dialect)
-    #     #engine.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
-    #     engine.execute('UPDATE person SET phone_number Numeric;')
-
-
     dob = Column('dob',Date())
     last_name = Column('last_name',String(50))
 
     phone_number = Column('phone_number',Numeric)
     email = Column('email',String(50),unique = True)
     id = Column('id',Integer,primary_key=True)
-    # add_column(cnx, __tablename__, id)
-
-    """Adding primary key"""
-
-    # def add_column(engine, table_name,column):
-    #     column_name = column.compile(dialect=engine.dialect)
-    #     column_type = column.type.compile(engine.dialect)
-    #     #engine.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
-    #     #engine.execute('ALTER TABLE %s AUTO_INCREMENT=1' % (table_name))
-
-    # id = Column('id',Integer)
-    #add_column(cnx,__tablename__,id)
-    Bs = relationship("Course", backref="person_details.id")
-    Cs = relationship("Exam",backref="person_details.id")
-
-    # Cs = relationship("C", backref="A.id")
-    #__table_args__ = (UniqueConstraint('email') ,)
-#https://www.youtube.com/watch?v=T6Q6bsv05To&list=PL4iRawDSyRvVd1V7A45YtAGzDk6ljVPm1&index=8
-
-
+    course_ref = relationship("Course", backref="person_details.id")
+    exam_ref = relationship("Exam",backref="person_details.id")
 
 """
 Student table is given below
