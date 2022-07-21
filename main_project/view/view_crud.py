@@ -26,11 +26,4 @@ from main_project.controller.enrollment import *
 """below code is used to update details"""
 # up(class_name,"column_name","new value',"class_name.column_name,old_value)
 
-"""below 3 commands are used to fetch
-1)enroll student into particular course
-2)count of student enrolled into particular course
-3)count distinct students taught by single professor
-"""
-# student_enrollment_course()
-# get_student_count_enrolled_into_course()
-# get_distinct_students()
+
