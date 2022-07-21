@@ -1,13 +1,11 @@
-from sqlalchemy import *
-from connector import cnx
-from main_project.model.base import *
-from main_project.model.person import *
-# from main_project.controller.enrollment import *
+from sqlalchemy import Column,String,Integer,Date,ForeignKey,Float
+from main_project.model.base import Base,cnx
 from sqlalchemy.orm import relationship
+from main_project.model.person import teacher
 class Course(Base):
     __tablename__ = 'course'
     course_id = Column("course_id", Integer, primary_key=True)
-    teacher_id = Column("emp_id",Integer,ForeignKey("teacher.emp_id"))
+    teacher_id = Column("emp_id",Integer,ForeignKey(teacher.emp_id))
     title = Column('title', String(100))
     credits = Column('credits', Float)
     level = Column('level', Integer)

@@ -1,11 +1,6 @@
-from sqlalchemy import *
-from sqlalchemy.ext.declarative import declarative_base
-from connector import cnx
-from main_project.model.person import *
-from main_project.model.course import *
-from main_project.model.base import *
-from sqlalchemy.orm import *
-from main_project.model.enroll_and_exam import *
+from sqlalchemy import text
+from main_project.model.base import cnx
+from main_project.model.enroll_and_exam import Enrollments
 
 #Taking input from user and enrolling student to course
 def student_enrollment_course():
