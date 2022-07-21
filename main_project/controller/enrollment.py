@@ -5,16 +5,7 @@ from main_project.model.person import *
 from main_project.model.course import *
 from main_project.model.base import *
 from sqlalchemy.orm import *
-
-class Enrollments(Base):
-    __tablename__ = 'enrollment'
-    __table_args__ = {'extend_existing': True}
-
-    enroll_id = Column("enrollment_id", Integer, primary_key=True)
-    course_id = Column('enroll_course_id',Integer,ForeignKey('course.course_id'))
-    student_id = Column('student_id',Integer,ForeignKey('student.id'))
-    student = relationship('Student')
-Base.metadata.create_all(cnx)
+from main_project.model.enroll_and_exam import *
 
 #Taking input from user and enrolling student to course
 def student_enrollment_course():
@@ -30,7 +21,15 @@ def get_student_count_enrolled_into_course():
     results = cnx.execute(sql)
     for i in results:
         print(i[0])
+# get_student_count_enrolled_into_course()
 
+def get_distinct_students():
+    inp_emp_id = int(input("Enter employee id to find count of distinct students:"))
+    sql = text('select count(distinct student_id) as frequency from enrollment inner join course on enroll_course_id=course_id where emp_id = %s;' % (inp_emp_id))
+    results = cnx.execute(sql)
+    for i in results:
+        print(i[0])
+# get_distinct_students()
 
 
 
