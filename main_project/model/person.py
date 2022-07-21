@@ -17,7 +17,6 @@ class Person(Base):
     add = relationship("address",backref = "personal_details.id")
 
 
-
 class Student(Base):
     """Student table"""
     __tablename__ = "student"
