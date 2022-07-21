@@ -22,3 +22,8 @@ from main_project.model.person import *
 """below code is used to add exam details in exam table"""
 
 # add_exam(exam1,exam2,exam3)
+
+
+"""update operation"""
+
+# up(class_name,"column_name","new value',"class_name.column_name,old_value)

@@ -31,9 +31,6 @@ def add_stud(obj1,obj2,obj3):
 # person3 = Person(first_name = 'milan', dob = '2018-6-3',last_name = 'bariya',phone_number = 1296758945,email = 'milan@gmail.com')
 # student3 = student(roll_number = 1154, batch = 2020,level=14)
 # address3 = address(street='milanhnagar',city='mumbai',country='india',postal_code=61527)
-# add_stud(person1,student1,address1)
-# add_stud(person2,student2,address2)
-# add_stud(person3,student3,address3)
 
 
 def add_teacher(obj1,obj2,obj3):
@@ -61,9 +58,7 @@ def add_teacher(obj1,obj2,obj3):
 # teacher3 = teacher(salary = 3000,doj = '2020-9-1')
 # address3 = address(street='highway',city='mumbai',country='italy',postal_code=56)
 #
-# add_teacher(person1,teacher1,address1)
-# add_teacher(person2,teacher2,address2)
-# add_teacher(person3,teacher3,address3)
+
 
 """course.py tables"""
 
@@ -78,7 +73,7 @@ def add_course(obj1,obj2,obj3):
 # course4 = Course(title = 'dsa',credits = 20 ,level=15, total = 20)
 # course5 = Course(title = 'spa',credits = 15 ,level=14, total = 15)
 # course6 = Course(title = 'c++',credits = 20 ,level=15, total = 20)
-# add_course(course4,course5,course6)
+
 
 
 
@@ -90,28 +85,12 @@ def add_exam(obj1,obj2,obj3):
 # exam3 = Exam(exam_date = '2022-5-30',supervisor = 'prajakta',total_marks = 80)
 
 
-# add_exam(exam1,exam2,exam3)
-
-
-
-"""enrollment.py tables"""
-
-
-# def enroll_stud():
-#     s = session.query(Student)
-#     c = session.query(Course)
-#
-#
-#
-#
-#
-# enroll_stud()
 
 
 """update operation"""
-# def up(class_name,col_name,new_value,cl_col,olprint(df2)d_value):
+# def up(class_name,col_name,new_value,cl_col,old_value):
 #     u = update(class_name)
 #     u = u.values({col_name: new_value})
 #     u = u.where(cl_col == old_value)
 #     cnx.execute(u)
-# up(Person,'first_name','semil',Person.first_name,'nilesh')
+# up(class_name,"column_name","new value',"class_name.column_name,old_value)
