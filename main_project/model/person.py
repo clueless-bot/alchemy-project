@@ -1,10 +1,7 @@
-from sqlalchemy import *
-# from sqlalchemy.ext.declarative import declarative_base
-# Base = declarative_base()
+from sqlalchemy import Column,String,Numeric,Integer,Date,ForeignKey
 from main_project.model.base import Base
 from sqlalchemy.orm import relationship
 from connector import cnx
-from sqlalchemy.schema import UniqueConstraint
 
 class Person(Base):
     __tablename__ = "person_details"
@@ -15,6 +12,8 @@ class Person(Base):
     phone_number = Column('phone_number',Numeric)
     email = Column('email',String(50),unique = True)
     id = Column('id',Integer,primary_key=True)
+    stud = relationship("Student",backref = "personal_details.id")
+    add = relationship("address",backref = "personal_details.id")
 
 """
 Student table is given below
@@ -23,7 +22,7 @@ Student table is given below
 class Student(Base):
     __tablename__ = "student"
     __table_args__ = {'extend_existing': True}
-    person_id = Column('person_id',Integer,ForeignKey('person_details.id'),nullable =False)
+    person_id = Column('person_id',Integer,ForeignKey(Person.id),nullable =False)
     id = Column('id', Integer,primary_key = True)
     roll_number = Column("roll_number",Integer)
     batch = Column("batch",Integer)
@@ -40,8 +39,11 @@ class teacher(Base):
 
     emp_id = Column('emp_id', Integer, primary_key=True)
     salary = Column('salary',Integer)
-    person_id = Column('person_id', Integer,ForeignKey('person_details.id'))
+    person_id = Column('person_id', Integer,ForeignKey(Person.id))
     doj = Column('date_of_joining', Date())
+    enroll_course_teacher_id_ref = relationship("Course", backref="teacher.emp_id")
+
+
 
 """
 address table is given below
@@ -51,7 +53,7 @@ class address(Base):
 
     __tablename__ = "address"
     __table_args__ = {'extend_existing': True}
-    person_id = Column('person_id',Integer,ForeignKey('person_details.id'))
+    person_id = Column('person_id',Integer,ForeignKey(Person.id))
     address_id = Column('address_id',Integer,primary_key = True)
     street = Column('street',String(500))
     city = Column('city',String(500))
