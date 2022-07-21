@@ -1,15 +1,24 @@
 from sqlalchemy import *
-from sqlalchemy.ext.declarative import declarative_base
-from main_project.model.base import Base
-from main_project.model.person import *
-from connector import cnx
 from main_project.model.base import *
 from main_project.model.course import *
 from main_project.model.person import *
-from main_project.controller.crud import *
 
-import pandas as pd
-def show_crud(table):
-    user_table = pd.read_sql_table(table_name=table, con=cnx)
-    print(user_table)
-show_crud('exam')
+
+"""below line is used to add student into student table"""
+
+# add_stud(person1,student1,address1)
+# add_stud(person2,student2,address2)
+# add_stud(person3,student3,address3)
+"""below code is used to add teacher into teacher table"""
+
+# add_teacher(person1,teacher1,address1)
+# add_teacher(person2,teacher2,address2)
+# add_teacher(person3,teacher3,address3)
+
+"""below code is used to add course details into course table"""
+
+# add_course(course1,course2,course3)
+
+"""below code is used to add exam details in exam table"""
+
+# add_exam(exam1,exam2,exam3)
