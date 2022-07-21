@@ -23,7 +23,8 @@ from main_project.controller.enrollment import *
 """below code is used to add exam details in exam table"""
 
 # add_exam(exam1,exam2,exam3)
-
+"""below code is used to update details"""
+# up(class_name,"column_name","new value',"class_name.column_name,old_value)
 
 """below 3 commands are used to fetch
 1)enroll student into particular course

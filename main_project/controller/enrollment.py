@@ -13,7 +13,6 @@ def student_enrollment_course():
     inp_course_id = int(input('Enter course id:'))
     sql = text('insert into enrollment (enroll_course_id,student_id) select course.course_id, student.id from student inner join course on student.student_level = course.level where not exists (select enroll_course_id,student_id from enrollment where enroll_course_id = %s and student_id= %s)  and  course.course_id = %s and student.id = %s;' % (inp_course_id,inp_student_id,inp_course_id,inp_student_id))
     results = cnx.execute(sql)
-# student_enrollment_course()
 
 def get_student_count_enrolled_into_course():
     inp_student_id = int(input("Enter student id to find count of students"))
@@ -21,7 +20,6 @@ def get_student_count_enrolled_into_course():
     results = cnx.execute(sql)
     for i in results:
         print(i[0])
-# get_student_count_enrolled_into_course()
 
 def get_distinct_students():
     inp_emp_id = int(input("Enter employee id to find count of distinct students:"))
@@ -29,7 +27,6 @@ def get_distinct_students():
     results = cnx.execute(sql)
     for i in results:
         print(i[0])
-# get_distinct_students()
 
 
 

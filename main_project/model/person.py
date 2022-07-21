@@ -7,57 +7,20 @@ from connector import cnx
 from sqlalchemy.schema import UniqueConstraint
 
 class Person(Base):
-    # def __int__(self,first_name,dob,last_name,phone_number,email,id):
-    #     self.first_name = first_name
-    #     self.dob = dob
-    #     self.last_name = last_name
-    #     self.phone_number = phone_number
-    #     self.email = email
-    #     self.id = id
-
     __tablename__ = "person_details"
     __table_args__ = {'extend_existing': True}
     first_name = Column(String(50))
-
-
-
-    """Adding Columns"""
-    # def add_column(engine, table_name, column):
-    #     column_name = column.compile(dialect=engine.dialect)
-    #     column_type = column.type.compile(engine.dialect)
-    #     #engine.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
-    #     engine.execute('UPDATE person SET phone_number Numeric;')
-
-
     dob = Column('dob',Date())
     last_name = Column('last_name',String(50))
-
     phone_number = Column('phone_number',Numeric)
     email = Column('email',String(50),unique = True)
     id = Column('id',Integer,primary_key=True)
-    # add_column(cnx, __tablename__, id)
-
-    """Adding primary key"""
-
-    # def add_column(engine, table_name,column):
-    #     column_name = column.compile(dialect=engine.dialect)
-    #     column_type = column.type.compile(engine.dialect)
-    #     #engine.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
-    #     #engine.execute('ALTER TABLE %s AUTO_INCREMENT=1' % (table_name))
-
-    # id = Column('id',Integer)
-    #add_column(cnx,__tablename__,id)
-    #course_fk = relationship("Course", backref="person_details.id")
-    #exam_fk = relationship("Exam",backref="person_details.id")
     stud = relationship("Student",backref = "personal_details.id")
     add = relationship("address",backref = "personal_details.id")
 
-    # Cs = relationship("C", backref="A.id")
-    #__table_args__ = (UniqueConstraint('email') ,)
-#https://www.youtube.com/watch?v=T6Q6bsv05To&list=PL4iRawDSyRvVd1V7A45YtAGzDk6ljVPm1&index=8
-
-
-
+"""
+Student table is given below
+"""
 
 class Student(Base):
     __tablename__ = "student"
@@ -69,17 +32,7 @@ class Student(Base):
     level = Column("student_level",Integer)
     enroll_stud_fk = relationship("Enrollments", backref="student.id")
 
-
-
-    # def add_col(engine, table_name, column):
-    #     column_name = column.compile(dialect=engine.dialect)
-    #     column_type = column.type.compile(engine.dialect)
-        # engine.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
-        # engine.execute('ALTER TABLE course Modify column credits Integer; ')
-        # engine.execute('UPDATE student SET level=''')
-    #     engine.execute("alter table %s rename column level to student_level" % (table_name))
-    # add_col(cnx,__tablename__,level)
-"""add_column(cnx, __tablename__,credits)
+"""
 Teacher/professor table is created below
 """
 

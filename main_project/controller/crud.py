@@ -104,4 +104,3 @@ import itertools
 #     u = u.values({col_name: new_value})
 #     u = u.where(cl_col == old_value)
 #     cnx.execute(u)
-# up(Person,'first_name','semil',Person.first_name,'nilesh')
