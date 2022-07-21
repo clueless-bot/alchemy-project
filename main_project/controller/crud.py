@@ -49,7 +49,7 @@ def add_exam(obj1,obj2,obj3,obj4,obj5,obj6):
 
 
 # """update operation"""
-# def up(class_name,col_name,new_value,cl_col,olprint(df2)d_value):
+# def up(class_name,col_name,new_value,cl_col,old_value):
 #     u = update(class_name)
 #     u = u.values({col_name: new_value})
 #     u = u.where(cl_col == old_value)
