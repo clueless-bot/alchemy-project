@@ -3,54 +3,51 @@ from main_project.model.person import Person
 from sqlalchemy import update
 
 
-"""person.py tables"""
-def add_stud(obj1,obj2,obj3):
-    session.add(obj1)
+#Person.py Table
+def add_stud(person,student,address):
+    """Adding student details"""
+    session.add(person)
     session.commit()
     result = session.query(Person) \
-        .with_entities(obj1.id) \
-        .filter(Person.email == obj1.email).first()
-    obj2.person_id = result[0]
-    session.add(obj2)
+        .with_entities(student.id) \
+        .filter(Person.email == person.email).first()
+    student.person_id = result[0]
+    session.add(student)
     session.commit()
-    obj3.person_id = result[0]
-    session.add(obj3)
+    student.person_id = result[0]
+    session.add(address)
     session.commit()
 
-def add_teacher(obj1,obj2,obj3):
-    session.add(obj1)
+
+def add_teacher(person,teacher,address):
+    """adding teacher details"""
+    session.add(person)
     session.commit()
     result = session.query(Person) \
-        .with_entities(obj1.id) \
-        .filter(Person.email == obj1.email).first()
-    obj2.person_id = result[0]
-    session.add(obj2)
+        .with_entities(person.id) \
+        .filter(Person.email == person.email).first()
+    teacher.person_id = result[0]
+    session.add(teacher)
     session.commit()
-    obj3.person_id = result[0]
-    session.add(obj3)
-    session.commit()
-
-
-
-"""course.py tables"""
-
-
-def add_course(obj1,obj2,obj3):
-    session.add_all([obj1,obj2,obj3])
+    address.person_id = result[0]
+    session.add(address)
     session.commit()
 
+#course.py tables
+def add_course(course1,course2,couurse3,course4,course5,course6):
+    """adding course"""
+    session.add_all([course1,course2,couurse3,course4,course5,course6])
+    session.commit()
 
-
-
-
-def add_exam(obj1,obj2,obj3,obj4,obj5,obj6):
-    session.add_all([obj1,obj2,obj3,obj4,obj5,obj6])
+def add_exam(exam1,exam2,exam3):
+    """adding exam"""
+    session.add_all([exam1,exam2,exam3])
     session.commit()
 
 
-# """update operation"""
-# def up(class_name,col_name,new_value,cl_col,old_value):
-#     u = update(class_name)
-#     u = u.values({col_name: new_value})
-#     u = u.where(cl_col == old_value)
-#     cnx.execute(u)
+def up(class_name,col_name,new_value,cl_col,old_value):
+    """update operation"""
+    u = update(class_name)
+    u = u.values({col_name: new_value})
+    u = u.where(cl_col == old_value)
+    cnx.execute(u)

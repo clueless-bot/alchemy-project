@@ -6,6 +6,7 @@ from main_project.model.person import Student
 
 
 class Enrollments(Base):
+    """Enrollment Table"""
     __tablename__ = 'enrollment'
     __table_args__ = {'extend_existing': True}
 

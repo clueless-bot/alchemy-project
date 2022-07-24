@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 from connector import cnx
 
 class Person(Base):
+    """person table which includes teacher and student details"""
     __tablename__ = "person_details"
     __table_args__ = {'extend_existing': True}
     first_name = Column(String(50))
@@ -15,11 +16,10 @@ class Person(Base):
     stud = relationship("Student",backref = "personal_details.id")
     add = relationship("address",backref = "personal_details.id")
 
-"""
-Student table is given below
-"""
+
 
 class Student(Base):
+    """Student table"""
     __tablename__ = "student"
     __table_args__ = {'extend_existing': True}
     person_id = Column('person_id',Integer,ForeignKey(Person.id),nullable =False)
@@ -27,14 +27,9 @@ class Student(Base):
     roll_number = Column("roll_number",Integer)
     batch = Column("batch",Integer)
     level = Column("student_level",Integer)
-    enroll_stud_fk = relationship("Enrollments", backref="student.id")
 
-"""
-Teacher/professor table is created below
-"""
-
-
-class teacher(Base):
+class Teacher(Base):
+    """teacher/professor table"""
     __tablename__ = "teacher"
     __table_args__ = {'extend_existing': True}
 
@@ -44,14 +39,8 @@ class teacher(Base):
     doj = Column('date_of_joining', Date())
     enroll_course_teacher_id_ref = relationship("Course", backref="teacher.emp_id")
 
-
-
-"""
-address table is given below
-"""
-
-class address(Base):
-
+class Address(Base):
+    """address table which includes student and teachers address"""
     __tablename__ = "address"
     __table_args__ = {'extend_existing': True}
     person_id = Column('person_id',Integer,ForeignKey(Person.id))
@@ -60,6 +49,5 @@ class address(Base):
     city = Column('city',String(500))
     country = Column('country',String(500))
     postal_code = Column('postal_code',Integer)
-
 
 Base.metadata.create_all(cnx)
