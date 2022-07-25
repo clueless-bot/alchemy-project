@@ -5,6 +5,7 @@ from main_project.model.person import Teacher
 class Course(Base):
     """course table"""
     __tablename__ = 'course'
+    __table_args__ = {'extend_existing': True}
     course_id = Column("course_id", Integer, primary_key=True)
     teacher_id = Column("emp_id",Integer,ForeignKey(Teacher.emp_id))
     title = Column('title', String(100))
@@ -17,6 +18,7 @@ class Course(Base):
 class Exam(Base):
     """Exam table"""
     __tablename__ = 'exam'
+    __table_args__ = {'extend_existing': True}
     exam_number = Column("exam_number", Integer, primary_key=True)
     exam_date = Column("exam_date", Date())
     supervisor = Column("supervisor", String(100))
