@@ -53,4 +53,4 @@ exam3 = Exam(exam_date = '2022-5-30',supervisor = 'prajakta',total_marks = 80)
 add_exam(exam1,exam2,exam3)
 
 """below code is used to update details"""
-# up(class_name,"column_name","new value',"class_name.column_name,old_value)
+up(class_name,"column_name","new value',"class_name.column_name,old_value)
