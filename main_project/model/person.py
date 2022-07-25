@@ -50,5 +50,4 @@ class Address(Base):
     country = Column('country',String(500))
     postal_code = Column('postal_code',Integer)
 
-
 Base.metadata.create_all(cnx)
