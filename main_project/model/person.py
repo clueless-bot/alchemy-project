@@ -14,7 +14,7 @@ class Person(Base):
     email = Column('email',String(50),unique = True)
     id = Column('id',Integer,primary_key=True)
     stud = relationship("Student",backref = "personal_details.id")
-    add = relationship("address",backref = "personal_details.id")
+    add = relationship("Address",backref = "personal_details.id")
 
 
 

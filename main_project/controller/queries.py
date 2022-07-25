@@ -11,11 +11,11 @@ get_distinct_student = ('select count(distinct student_id) as frequency from enr
 """task5.py queries"""
 # inserting into attempt table
 insert_into_attempt = ("INSERT INTO attempt (student_id,exam_id,student_marks) VALUES (%s,%s,%s);")
-
+# Count of total student passed in exam
 passed = ("SELECT COUNT(student_marks) from attempt where student_marks>35;")
-
+# Count of total student failed in exam
 failed = ("SELECT COUNT(student_marks) from attempt where student_marks<35;")
-
+# Average marks of student
 average = ("select avg(student_marks) from attempt;")
-
+# getting percentage of students who passed the exam and percentage of student who failed the exam
 percentage = ("select count(student_marks) from attempt")

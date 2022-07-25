@@ -2,7 +2,7 @@ from main_project.controller.enrollment import student_enrollment_course,get_stu
 import logging
 logging.basicConfig(filename="enrollment.log",level=logging.INFO)
 # enroll student into particular course
-# enroll = student_enrollment_course()
+enroll = student_enrollment_course()
 
 #count of student enrolled into particular course
 count_enroll = get_student_count_enrolled_into_course()

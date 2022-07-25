@@ -1,6 +1,6 @@
 from main_project.model.base import Base,cnx
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column,Integer,ForeignKey,PrimaryKeyConstraint
+from sqlalchemy import Column,Integer,ForeignKey
 from main_project.model.course import Course,Exam
 from main_project.model.person import Student
 
