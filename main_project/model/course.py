@@ -21,6 +21,5 @@ class Exam(Base):
     exam_date = Column("exam_date", Date())
     supervisor = Column("supervisor", String(100))
     total_marks = Column("total_marks", Integer)
-    enroll_attempt_exam_number_fk = relationship("Attempt", backref="exam.exam_number")
 
 Base.metadata.create_all(cnx)

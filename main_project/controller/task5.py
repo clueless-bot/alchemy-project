@@ -6,6 +6,9 @@ def get_exam_id(exam_id):
     result = session.query(Exam).filter(Exam.exam_number == exam_id).first()
     return result
 
+# def insert(table_name,column_name,values):
+
+
 def insert_into_attempt():
     inp_student_id = int(input("add student id"))
     inp_exam_id = int(input("add exam id"))
@@ -20,18 +23,18 @@ def total_passed():
     sql = text("SELECT COUNT(student_marks) from attempt where student_marks>35;")
     result = cnx.execute(sql).first()
     return result[0]
-    print(result[0])
+    return result[0]
 
 def total_failed():
     sql = text("SELECT COUNT(student_marks) from attempt where student_marks<35;")
     result = cnx.execute(sql).first()
     return result[0]
-    print(result[0])
+    return result[0]
 
 def avg_marks():
     sql = text("select avg(student_marks) from attempt;")
     result = cnx.execute(sql).first()
-    print(result[0])
+    return result[0]
 
 
 #to calculate total count of students who attempted exams
@@ -46,8 +49,8 @@ def get_percentage():
     passedPercetage = (passed / t ) * 100
     failedPercentage = 100 - passedPercetage
 
-    print(passedPercetage)
-    print(failedPercentage)
+    return passedPercetage,passedPercetage
+
 
 
 
