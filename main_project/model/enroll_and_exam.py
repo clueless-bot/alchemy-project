@@ -6,6 +6,7 @@ from main_project.model.person import Student
 
 
 class Enrollments(Base):
+    """Enrollment table"""
     __tablename__ = 'enrollment'
     __table_args__ = {'extend_existing': True}
     enroll_id = Column("enrollment_id", Integer, primary_key=True)
@@ -14,6 +15,7 @@ class Enrollments(Base):
     student = relationship('Student')
 
 class Attempt(Base):
+    """Attempt table"""
     __tablename__ = 'attempt'
     __table_args__ = {'extend_existing': True}
 
